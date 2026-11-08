@@ -27,8 +27,11 @@ prefersDarkColorScheme.addEventListener("change", (colorSchemeChangeEvent) => {
 
 // the moon offers dark mode; the sun offers the way back
 function updateThemeIcon(theme) {
+  const offeredTheme = theme === "light" ? "dark" : "light";
+
   themeToggleIconReference.setAttribute(
     "href",
-    theme === "light" ? "#icon-moon" : "#icon-sun",
+    offeredTheme === "dark" ? "#icon-moon" : "#icon-sun",
   );
+  themeToggleButton.setAttribute("aria-label", `switch to ${offeredTheme} theme`);
 }
